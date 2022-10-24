@@ -10,13 +10,13 @@ export const Nav: FC = () => {
         </Link>
       </li>
       <li>
-        <Link href="/test">
-          <a>Test page</a>
+        <Link href="/fruit">
+          <a>Fruit</a>
         </Link>
       </li>
       <li>
-        <Link href="/about">
-          <a>About</a>
+        <Link href="/framework">
+          <a>Framework</a>
         </Link>
       </li>
     </ul>

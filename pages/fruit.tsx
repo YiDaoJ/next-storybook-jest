@@ -4,14 +4,14 @@ import { RadioButton, RadioGroup } from "../components";
 // This gets called on every request
 export async function getStaticProps() {
   // Fetch data from external API
-  const res = await fetch("http://localhost:4000/test");
+  const res = await fetch("http://localhost:4000/fruits");
   const data = await res.json();
 
   // Pass data to the page via props
   return { props: { fruits: data.fruits } };
 }
 
-const Test: NextPage = ({
+const Fruit: NextPage = ({
   fruits,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const label = `Choose your favorite from the following ${fruits?.length} fruits：`;
@@ -25,4 +25,4 @@ const Test: NextPage = ({
   );
 };
 
-export default Test;
+export default Fruit;
