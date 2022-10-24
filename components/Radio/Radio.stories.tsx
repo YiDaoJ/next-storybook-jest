@@ -3,7 +3,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import { RadioButton } from ".";
 
 export default {
-  title: "Component/Radio",
+  title: "Components/Radio",
   component: RadioButton,
 } as ComponentMeta<typeof RadioButton>;
 
