@@ -85,7 +85,7 @@ const StyledInput = styled.input`
     position: absolute;
     top: 50%;
     left: 0;
-    transform: translate(-20%, -50%);
+    transform: translate(0%, -50%);
     width: 1.3125rem;
     height: 1.3125rem;
     border: 0.0625rem solid #6c767e;
@@ -131,7 +131,7 @@ const inputActive = css`
       border: 0.375rem solid #e00;
       border-radius: 100%;
       transform-origin: 0 0;
-      transform: translate(10%, -50%);
+      transform: translate(38%, -50%);
       content: "";
     }
   }

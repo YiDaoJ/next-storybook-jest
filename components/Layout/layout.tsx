@@ -5,7 +5,7 @@ import styled from "@emotion/styled";
 
 export const Layout: FC = ({ children }) => {
   return (
-    <div css={wrapLayout}>
+    <div className="layout" css={wrapLayout}>
       <Nav />
       <StyledMain className="main">{children}</StyledMain>
     </div>
