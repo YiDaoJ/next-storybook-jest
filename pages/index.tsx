@@ -1,11 +1,9 @@
 import type { ReactElement } from "react";
-
 import type { NextPageWithLayout } from "./_app";
-
 import type { NextPage } from "next";
 import clsx from "clsx";
-import { Radio, RadioButton, RadioGroup } from "../components";
 
+import { Radio, RadioButton, RadioGroup } from "../components";
 import { Layout } from "../components/Layout";
 
 // const Home: NextPageWithLayout = () => {

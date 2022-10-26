@@ -7,48 +7,48 @@ exports[`RadioGroup test render RadioGroup component 1`] = `
     data-testid="radio-group"
   >
     <label
-      class="radio-group__label css-1704lc0-RadioGroup"
+      class="radio-group__label css-17hkqxt-RadioGroup"
     >
       Gender
     </label>
     <div
-      class="radio-group__control css-39sq48-RadioGroup"
+      class="radio-group__control css-7oolm6-RadioGroup"
     >
       <label
-        class="css-1q95yh5 e1tqysq50"
+        class="css-1l1iwz4 eklyevl0"
       >
         <span
           class="radio-input"
         >
           <input
             checked=""
-            class="css-1jgh6ha e1tqysq51"
+            class="css-17x93x9 eklyevl1"
             name="female"
             type="radio"
             value="female"
           />
         </span>
         <span
-          class="radio-label css-nbpclj-RadioButton"
+          class="radio-label css-10csrag-RadioButton"
         >
           Female
         </span>
       </label>
       <label
-        class="css-1q95yh5 e1tqysq50"
+        class="css-1l1iwz4 eklyevl0"
       >
         <span
           class="radio-input"
         >
           <input
-            class="css-1jgh6ha e1tqysq51"
+            class="css-17x93x9 eklyevl1"
             name="male"
             type="radio"
             value="male"
           />
         </span>
         <span
-          class="radio-label css-nbpclj-RadioButton"
+          class="radio-label css-10csrag-RadioButton"
         >
           Male
         </span>
