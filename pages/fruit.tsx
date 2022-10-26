@@ -5,20 +5,6 @@ import type {
 } from "next";
 import { RadioButton, RadioGroup } from "../components";
 
-// This gets called on every request
-export const getServerSideProps: GetServerSideProps = async () => {
-  try {
-    // Fetch data from external API
-    const res = await fetch("http://localhost:4000/fruits");
-    const data = await res.json();
-
-    // Pass data to the page via props
-    return { props: { fruits: data.fruits } };
-  } catch (e) {
-    return e;
-  }
-};
-
 const Fruit: NextPage = ({
   fruits,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
@@ -34,3 +20,36 @@ const Fruit: NextPage = ({
 };
 
 export default Fruit;
+
+// This gets called on every request
+export const getServerSideProps: GetServerSideProps = async () => {
+  try {
+    const fruits = await fetchFruit();
+    // Pass data to the page via props
+    return { props: { fruits } };
+  } catch (e) {
+    throw e;
+  }
+};
+
+export const fetchFruit = async () => {
+  try {
+    const result = await fetch("http://localhost:4000/fruits");
+    const data = await result.json();
+    return data.fruits;
+  } catch (e) {
+    return null;
+  }
+};
+
+export const convert = async (base, destination) => {
+  try {
+    const result = await fetch(
+      `https://api.exchangeratesapi.io/latest?base=${base}`
+    );
+    const data = await result.json();
+    return data.rates[destination];
+  } catch (e) {
+    return null;
+  }
+};

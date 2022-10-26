@@ -15,14 +15,14 @@ exports[`RadioGroup test render RadioGroup component 1`] = `
       class="radio-group__control css-39sq48-RadioGroup"
     >
       <label
-        class="css-1q95yh5 ee1hsb70"
+        class="css-1q95yh5 e1tqysq50"
       >
         <span
           class="radio-input"
         >
           <input
             checked=""
-            class="css-1iqdaat ee1hsb71"
+            class="css-1jgh6ha e1tqysq51"
             name="female"
             type="radio"
             value="female"
@@ -35,13 +35,13 @@ exports[`RadioGroup test render RadioGroup component 1`] = `
         </span>
       </label>
       <label
-        class="css-1q95yh5 ee1hsb70"
+        class="css-1q95yh5 e1tqysq50"
       >
         <span
           class="radio-input"
         >
           <input
-            class="css-1iqdaat ee1hsb71"
+            class="css-1jgh6ha e1tqysq51"
             name="male"
             type="radio"
             value="male"
