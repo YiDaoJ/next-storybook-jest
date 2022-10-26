@@ -1,4 +1,4 @@
-import { fetchFruit, convert } from "../fruit";
+import { fetchFruit } from "../fruit";
 
 const fruits = ["Apfel", "Birne", "Erdbeere"];
 
