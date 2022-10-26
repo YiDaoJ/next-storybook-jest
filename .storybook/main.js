@@ -14,17 +14,4 @@ module.exports = {
   core: {
     builder: "@storybook/builder-webpack5",
   },
-  webpackFinal: async (config) => {
-    // React preset + Emotion props
-    config.module.rules[0].use[0].options.presets = [
-      require.resolve("@babel/preset-react"),
-      require.resolve("@babel/preset-env"),
-      require.resolve("@emotion/babel-preset-css-prop"),
-    ];
-
-    return config;
-  },
-  features: {
-    emotionAlias: false,
-  },
 };

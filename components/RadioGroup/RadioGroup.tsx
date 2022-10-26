@@ -1,4 +1,3 @@
-import { css } from "@emotion/react";
 import React, { ChangeEvent, FC, PropsWithChildren, useState } from "react";
 import RadioGroupContext from "./context";
 
@@ -32,17 +31,13 @@ export const RadioGroup: FC<PropsWithChildren<RadioGroupProps>> = ({
 
   return (
     <div className="radio-group__container" data-testid="radio-group">
-      {label && (
-        <label className="radio-group__label" css={GroupLabelStyle}>
-          {label}
-        </label>
-      )}
+      {label && <label className="radio-group__label">{label}</label>}
       <RadioGroupContext.Provider
         value={{ name, onChange: handleChange, selected: value }}
       >
         <div
           className="radio-group__control"
-          css={horizontal ? GroupControlHorizontal : GroupControlVertical}
+          // css={horizontal ? GroupControlHorizontal : GroupControlVertical}
         >
           {children}
         </div>
@@ -51,24 +46,24 @@ export const RadioGroup: FC<PropsWithChildren<RadioGroupProps>> = ({
   );
 };
 
-const GroupLabelStyle = css`
-  display: block;
-  font-size: 1rem;
-  line-height: 1.5rem;
-  letter-spacing: 0.011875rem;
-  margin-bottom: 0.5rem;
-  color: #6c767e;
-  font-family: Verdana, Arial, sans-serif;
-`;
+// const GroupLabelStyle = css`
+//   display: block;
+//   font-size: 1rem;
+//   line-height: 1.5rem;
+//   letter-spacing: 0.011875rem;
+//   margin-bottom: 0.5rem;
+//   color: #6c767e;
+//   font-family: Verdana, Arial, sans-serif;
+// `;
 
-const GroupControlHorizontal = css`
-  display: flex;
-  flex-direction: row;
-  gap: 2rem;
-  justify-content: flex-start;
-`;
+// const GroupControlHorizontal = css`
+//   display: flex;
+//   flex-direction: row;
+//   gap: 2rem;
+//   justify-content: flex-start;
+// `;
 
-const GroupControlVertical = css`
-  display: flex;
-  flex-direction: column;
-`;
+// const GroupControlVertical = css`
+//   display: flex;
+//   flex-direction: column;
+// `;

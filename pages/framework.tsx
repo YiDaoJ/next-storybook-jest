@@ -1,4 +1,3 @@
-import { css } from "@emotion/react";
 import type { InferGetServerSidePropsType, NextPage } from "next";
 import { useState } from "react";
 import { RadioButton, RadioGroup } from "../components";
@@ -30,17 +29,10 @@ const Framework: NextPage = ({
           <RadioButton value={item} label={item} key={item} />
         ))}
       </RadioGroup>
-      <div css={outputStyle}>{selected}</div>
+      <div className="flex justify-start items-baseline h-8">{selected}</div>
     </>
   );
 };
-
-const outputStyle = css`
-  display: flex;
-  height: 2rem;
-  justify-content: flex-start;
-  align-items: baseline;
-`;
 
 export default Framework;
 

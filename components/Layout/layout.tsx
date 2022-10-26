@@ -1,35 +1,25 @@
-import { css } from "@emotion/react";
 import { FC } from "react";
 import { Nav } from "./nav";
-import styled from "@emotion/styled";
 
 export const Layout: FC = ({ children }) => {
   return (
-    <div className="layout" css={wrapLayout}>
+    <div className="layout w-full h-full py-4 px-16 flex flex-col justify-start">
       <Nav />
-      <StyledMain className="main">{children}</StyledMain>
+      <main className="main h-full p-32 flex flex-col justify-center items-center flex-initial">
+        {children}
+      </main>
     </div>
   );
 };
 
-const wrapLayout = css`
-  width: 100%;
-  height: 100%;
-  padding: 1rem 4rem;
+// const StyledMain = styled.main`
+//   height: 100%;
+//   padding: 2rem;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-`;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
 
-const StyledMain = styled.main`
-  height: 100%;
-  padding: 2rem;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  flex: 1;
-`;
+//   flex: 1;
+// `;
