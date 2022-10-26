@@ -1,4 +1,6 @@
+import { css } from "@emotion/react";
 import type { InferGetServerSidePropsType, NextPage } from "next";
+import { useState } from "react";
 import { RadioButton, RadioGroup } from "../components";
 
 // This gets called on every request
@@ -14,6 +16,8 @@ export async function getServerSideProps() {
 const Framework: NextPage = ({
   frameworks,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+  const [selected, setSelected] = useState("");
+
   const handleChange = (value: string) => {
     const info = { selected: value };
 
@@ -28,22 +32,35 @@ const Framework: NextPage = ({
       body: JSON.stringify(info),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        console.log(data);
+        setSelected(data.data);
+      });
   };
 
   const label = `Choose your favorite from the following ${frameworks?.length} JS-Frameworks/Libs`;
 
   return (
-    <RadioGroup
-      name="framework-selection"
-      label={label}
-      onChange={handleChange}
-    >
-      {frameworks?.map((item) => (
-        <RadioButton value={item} label={item} key={item} />
-      ))}
-    </RadioGroup>
+    <>
+      <RadioGroup
+        name="framework-selection"
+        label={label}
+        onChange={handleChange}
+      >
+        {frameworks?.map((item) => (
+          <RadioButton value={item} label={item} key={item} />
+        ))}
+      </RadioGroup>
+      <div css={outputStyle}>{selected}</div>
+    </>
   );
 };
+
+const outputStyle = css`
+  display: flex;
+  height: 2rem;
+  justify-content: flex-start;
+  align-items: baseline;
+`;
 
 export default Framework;

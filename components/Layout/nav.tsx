@@ -5,7 +5,6 @@ import { useRouter } from "next/router";
 
 export const Nav: FC = () => {
   const router = useRouter();
-
   const pathname = router.pathname;
 
   return (
