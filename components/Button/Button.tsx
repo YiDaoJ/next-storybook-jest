@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import React, { FC, MouseEvent, PropsWithChildren } from "react";
 
 export type Color = "primary" | "secondary" | "danger" | "warning";
@@ -8,39 +9,36 @@ export interface ButtonProps {
 }
 
 export const Button: FC<PropsWithChildren<ButtonProps>> = ({
+  color,
   children,
   onClick,
 }) => (
-  <button onClick={onClick} className="flex bg-purple">
+  <button
+    onClick={onClick}
+    className={clsx(
+      "flex items-center justify-center justify-self-center",
+      "cursor-pointer",
+      getColor(color)
+    )}
+  >
     {children}
   </button>
 );
 
-// export const getColor = (color?: Color) => {
-//   switch (color) {
-//     case "primary":
-//       return css`
-//         background: #6d5dfc;
-//         color: #e4ebf5e6;
-//       `;
-//     case "secondary":
-//       return css`
-//         color: #5e5c64e6;
-//       `;
-//     case "danger":
-//       return css`
-//         background: #dc3545e6;
-//         color: #e4ebf5e6;
-//       `;
-//     case "warning":
-//       return css`
-//         background: #ffca2ce6;
-//         color: #5e5c64e6;
-//       `;
-//     default:
-//       return css``;
-//   }
-// };
+export const getColor = (color?: Color): string => {
+  switch (color) {
+    case "primary":
+      return "bg-purple text-silver";
+    case "secondary":
+      return "text-gray";
+    case "danger":
+      return "bg-danger text-silver";
+    case "warning":
+      return "bg-warning text-silver";
+    default:
+      return "";
+  }
+};
 
 // export const Button = styled.button<Props>`
 /* all: unset;

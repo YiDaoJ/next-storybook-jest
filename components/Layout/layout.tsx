@@ -1,25 +1,26 @@
+import clsx from "clsx";
 import { FC } from "react";
 import { Nav } from "./nav";
 
 export const Layout: FC = ({ children }) => {
   return (
-    <div className="layout w-full h-full py-4 px-16 flex flex-col justify-start">
+    <div
+      className={clsx(
+        "layout",
+        "flex flex-col justify-start py-4 px-16",
+        "h-full w-full py-4 px-16"
+      )}
+    >
       <Nav />
-      <main className="main h-full p-32 flex flex-col justify-center items-center flex-initial">
+      <main
+        className={clsx(
+          "main",
+          "flex  flex-initial flex-col items-center justify-center ",
+          "h-full p-32"
+        )}
+      >
         {children}
       </main>
     </div>
   );
 };
-
-// const StyledMain = styled.main`
-//   height: 100%;
-//   padding: 2rem;
-
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-//   align-items: center;
-
-//   flex: 1;
-// `;

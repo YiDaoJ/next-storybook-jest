@@ -3,46 +3,42 @@ import { FC } from "react";
 import { useRouter } from "next/router";
 import clsx from "clsx";
 
+const routes: { path: string; title: string }[] = [
+  { path: "/", title: "Home" },
+  { path: "/fruit", title: "Fruit" },
+  { path: "/framework", title: "Framework" },
+];
+
 export const Nav: FC = () => {
   const router = useRouter();
   const pathname = router.pathname;
 
   return (
-    <ul className="list-none flex flex-row justify-start p-0 gap-8">
-      <li className={clsx({ selected: pathname === "/" })}>
-        <Link href="/">
-          <a>Home</a>
-        </Link>
-      </li>
-      <li className={clsx({ selected: pathname === "/fruit" })}>
-        <Link href="/fruit">
-          <a>Fruit</a>
-        </Link>
-      </li>
-      <li className={clsx({ selected: pathname === "/framework" })}>
-        <Link href="/framework">
-          <a>Framework</a>
-        </Link>
-      </li>
+    <ul
+      className={clsx(
+        "navigation__list",
+        " flex flex-row justify-start gap-8",
+        "list-none  p-0"
+      )}
+    >
+      {routes.map((route, index) => (
+        <li
+          key={index}
+          className={clsx("navigation__item", "inline-block list-none")}
+        >
+          <Link href={route.path}>
+            <a
+              className={clsx(
+                "no-underline transition-colors",
+                "hover:text-red",
+                pathname === route.path ? "text-red" : "text-black"
+              )}
+            >
+              {route.title}
+            </a>
+          </Link>
+        </li>
+      ))}
     </ul>
   );
 };
-
-// const StyledItem = styled.li<{ selected: boolean }>`
-//   list-style: none;
-//   display: inline-block;
-//   font-size: 1.1rem;
-//   line-height: 1.5rem;
-//   letter-spacing: 0.011875rem;
-//   font-family: Verdana, Arial, sans-serif;
-
-//   a {
-//     text-decoration: none;
-//     transition: all 0.3s ease;
-//     color: ${({ selected }) => (selected ? "#e00" : "#151515")};
-
-//     :hover {
-//       color: #e00;
-//     }
-//   }
-// `;

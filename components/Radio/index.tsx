@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import React, { ChangeEvent, FC, useEffect, useState } from "react";
 
 interface RadioButtonProps {
@@ -32,7 +33,12 @@ export const RadioButton: FC<RadioButtonProps> = ({
   };
 
   return (
-    <label disabled={disabled}>
+    <label
+      className={clsx(
+        "relative mb-4 inline-flex",
+        disabled ? "cursor-not-allowed text-gray" : "cursor-pointer"
+      )}
+    >
       <span className="radio-input">
         <input
           type="radio"
@@ -40,103 +46,28 @@ export const RadioButton: FC<RadioButtonProps> = ({
           onChange={handleChange}
           checked={isChecked}
           disabled={disabled}
+          className={clsx(
+            "relative inline-block appearance-none",
+            "mb-[5px] mt-3 h-px pl-8",
+            "rounded-lg border-transparent outline-none",
+            "before:absolute before:top-1/2 before:left-0 before:h-[21px] before:w-[21px]",
+            "before:translate-x-0 before:-translate-y-1/2",
+            "before:rounded-full before:border before:border-solid before:border-gray",
+            disabled
+              ? "pointer-events-none"
+              : [
+                  "cursor-pointer",
+                  "focus:before:border-black focus:before:outline-none",
+                  "hover:before:border-black",
+                  " after:absolute after:top-1/2 after:left-0 ",
+                  "after:-translate-1/4 after:-translate-y-1/2",
+                  "checked:after:rounded-full checked:after:border-6 checked:after:border-solid checked:after:border-red",
+                  "checked:after:origin-top-left checked:after:-translate-y-1/2 checked:after:translate-x-38",
+                ]
+          )}
         />
       </span>
       <span className="radio-label">{label}</span>
     </label>
   );
 };
-
-// ------ wrapper -------
-// const RadioWrapper = styled.label<{ disabled?: boolean }>`
-//   display: inline-flex;
-//   margin-bottom: 1rem;
-//   position: relative;
-//   cursor: pointer;
-
-//   ${({ disabled }) => disabled && wrapperDisabled};
-// `;
-
-// const wrapperDisabled = css`
-//   color: #6c767e;
-//   cursor: not-allowed;
-// `;
-
-// ------ input -------
-// const StyledInput = styled.input`
-//   appearance: none !important;
-//   margin-bottom: 0.3125rem;
-//   border-color: transparent;
-//   margin-top: 0.7rem;
-
-//   border-radius: 0.3125rem;
-//   display: inline-block;
-//   position: relative;
-//   padding-left: 2rem;
-//   outline: none;
-//   height: 1px;
-
-//   ::before {
-//     content: "";
-//     position: absolute;
-//     top: 50%;
-//     left: 0;
-//     transform: translate(0%, -50%);
-//     width: 1.3125rem;
-//     height: 1.3125rem;
-//     border: 0.0625rem solid #6c767e;
-//     box-shadow: 0.0625rem 0.0625rem transparent,
-//       -0.0625rem -0.0625rem transparent, 0.0625rem -0.0625rem transparent,
-//       -0.0625rem 0.0625rem transparent;
-//     border-radius: 100%;
-//   }
-
-//   ${({ disabled }) => (disabled ? inputDisabled : inputActive)};
-// `;
-
-// const inputDisabled = css`
-//   pointer-events: none;
-// `;
-
-// const inputActive = css`
-//   cursor: pointer;
-//   :focus::before {
-//     border: 0.0625rem solid #000;
-//     outline: none;
-//     box-shadow: 0 0 0 0.3125rem rgb(108 118 126 / 24%);
-//   }
-
-//   :hover::before {
-//     border: 0.0625rem solid #000;
-//   }
-
-//   ::after {
-//     position: absolute;
-//     top: 50%;
-//     left: 0;
-//     transform: translate(-20%, -50%);
-//     content: "";
-//   }
-
-//   :checked {
-//     ::after {
-//       position: absolute;
-//       top: 50%;
-//       left: 0;
-//       display: block;
-//       border: 0.375rem solid #e00;
-//       border-radius: 100%;
-//       transform-origin: 0 0;
-//       transform: translate(38%, -50%);
-//       content: "";
-//     }
-//   }
-// `;
-
-// ------ label -------
-// const labelStyle = css`
-//   font-size: 1rem;
-//   line-height: 1.5rem;
-//   letter-spacing: 0.011875rem;
-//   font-family: Verdana, Arial, sans-serif;
-// `;
