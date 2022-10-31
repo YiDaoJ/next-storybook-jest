@@ -3,8 +3,7 @@
 exports[`Button Test render Button component 1`] = `
 <DocumentFragment>
   <button
-    class="css-70a86a eiajpkf0"
-    color="primary"
+    class="flex items-center justify-center justify-self-center px-6 py-3 cursor-pointer rounded-2xl shadow-inner transition-all duration-500 hover:opacity-90 bg-purple text-silver"
   >
     Button
   </button>

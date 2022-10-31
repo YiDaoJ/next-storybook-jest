@@ -3,19 +3,19 @@
 exports[`Radio test render Radio component 1`] = `
 <DocumentFragment>
   <label
-    class="css-76sda2 e11nrcqk0"
+    class="relative mb-4 inline-flex cursor-pointer"
   >
     <span
       class="radio-input"
     >
       <input
-        class="css-17x93x9 e11nrcqk1"
+        class="relative inline-block appearance-none mb-[5px] mt-3 h-px pl-8 rounded-lg border-transparent outline-none before:absolute before:top-1/2 before:left-0 before:h-[21px] before:w-[21px] before:translate-x-0 before:-translate-y-1/2 before:rounded-full before:border before:border-solid before:border-gray cursor-pointer focus:before:border-black focus:before:outline-none hover:before:border-black  after:absolute after:top-1/2 after:left-0  after:-translate-1/4 after:-translate-y-1/2 checked:after:rounded-full checked:after:border-6 checked:after:border-solid checked:after:border-red checked:after:origin-top-left checked:after:-translate-y-1/2 checked:after:translate-x-38"
         name="test"
         type="radio"
       />
     </span>
     <span
-      class="radio-label css-10csrag-RadioButton"
+      class="radio-label"
     >
       Test
     </span>

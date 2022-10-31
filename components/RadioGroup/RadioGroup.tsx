@@ -1,4 +1,4 @@
-import { css } from "@emotion/react";
+import clsx from "clsx";
 import React, { ChangeEvent, FC, PropsWithChildren, useState } from "react";
 import RadioGroupContext from "./context";
 
@@ -33,7 +33,7 @@ export const RadioGroup: FC<PropsWithChildren<RadioGroupProps>> = ({
   return (
     <div className="radio-group__container" data-testid="radio-group">
       {label && (
-        <label className="radio-group__label" css={GroupLabelStyle}>
+        <label className={clsx("radio-group__label", "mb-2 block text-gray ")}>
           {label}
         </label>
       )}
@@ -41,8 +41,11 @@ export const RadioGroup: FC<PropsWithChildren<RadioGroupProps>> = ({
         value={{ name, onChange: handleChange, selected: value }}
       >
         <div
-          className="radio-group__control"
-          css={horizontal ? GroupControlHorizontal : GroupControlVertical}
+          className={clsx(
+            "radio-group__control",
+            "flex",
+            horizontal ? "flex-row justify-start gap-8" : "flex-col"
+          )}
         >
           {children}
         </div>
@@ -50,25 +53,3 @@ export const RadioGroup: FC<PropsWithChildren<RadioGroupProps>> = ({
     </div>
   );
 };
-
-const GroupLabelStyle = css`
-  display: block;
-  font-size: 1rem;
-  line-height: 1.5rem;
-  letter-spacing: 0.011875rem;
-  margin-bottom: 0.5rem;
-  color: #6c767e;
-  font-family: Verdana, Arial, sans-serif;
-`;
-
-const GroupControlHorizontal = css`
-  display: flex;
-  flex-direction: row;
-  gap: 2rem;
-  justify-content: flex-start;
-`;
-
-const GroupControlVertical = css`
-  display: flex;
-  flex-direction: column;
-`;

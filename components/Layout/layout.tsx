@@ -1,35 +1,26 @@
-import { css } from "@emotion/react";
+import clsx from "clsx";
 import { FC } from "react";
 import { Nav } from "./nav";
-import styled from "@emotion/styled";
 
 export const Layout: FC = ({ children }) => {
   return (
-    <div className="layout" css={wrapLayout}>
+    <div
+      className={clsx(
+        "layout",
+        "flex flex-col justify-start py-4 px-16",
+        "h-full w-full py-4 px-16"
+      )}
+    >
       <Nav />
-      <StyledMain className="main">{children}</StyledMain>
+      <main
+        className={clsx(
+          "main",
+          "flex  flex-initial flex-col items-center justify-center ",
+          "h-full p-32"
+        )}
+      >
+        {children}
+      </main>
     </div>
   );
 };
-
-const wrapLayout = css`
-  width: 100%;
-  height: 100%;
-  padding: 1rem 4rem;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-`;
-
-const StyledMain = styled.main`
-  height: 100%;
-  padding: 2rem;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  flex: 1;
-`;
