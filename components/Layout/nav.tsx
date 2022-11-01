@@ -31,7 +31,9 @@ export const Nav: FC = () => {
               className={clsx(
                 "no-underline transition-colors",
                 "hover:text-red",
-                pathname === route.path ? "text-red" : "text-black"
+                pathname === route.path
+                  ? "text-danger dark:text-warning"
+                  : "text-black dark:text-silver"
               )}
             >
               {route.title}
