@@ -22,7 +22,9 @@ export const RadioButton: FC<RadioButtonProps> = ({
     <label
       className={clsx(
         "relative mb-4 inline-flex",
-        disabled ? "cursor-not-allowed text-gray" : "cursor-pointer"
+        disabled
+          ? "cursor-not-allowed text-gray"
+          : "cursor-pointer text-black dark:text-silver"
       )}
     >
       <span className="radio-input">
@@ -44,11 +46,11 @@ export const RadioButton: FC<RadioButtonProps> = ({
               ? "pointer-events-none"
               : [
                   "cursor-pointer",
-                  "focus:before:border-black focus:before:outline-none",
-                  "hover:before:border-black",
+                  "focus:before:border-black focus:before:outline-none dark:focus:before:border-white", // COOL:order of peseudo class or elements doesn't matter
+                  "hover:before:border-black hover:before:dark:border-white",
                   " after:absolute after:top-1/2 after:left-0 ",
                   "after:-translate-1/4 after:-translate-y-1/2",
-                  "checked:after:rounded-full checked:after:border-6 checked:after:border-solid checked:after:border-red",
+                  "checked:after:rounded-full checked:after:border-6 checked:after:border-solid checked:after:border-danger",
                   "checked:after:origin-top-left checked:after:-translate-y-1/2 checked:after:translate-x-38",
                 ]
           )}

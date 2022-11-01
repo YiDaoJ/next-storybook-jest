@@ -16,6 +16,7 @@ module.exports = {
       danger: "#dc3545e6",
       purple: "#6d5dfc",
       silver: "#e4ebf5e6",
+      dark: "#334155",
     },
     borderWidth: {
       DEFAULT: "1px",
