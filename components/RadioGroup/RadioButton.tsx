@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import React, { ChangeEvent, FC, useContext, useEffect, useState } from "react";
+import { FC, useContext } from "react";
 import RadioGroupContext from "./context";
 
 interface RadioButtonProps extends RadioButtonStyleProps {
@@ -42,17 +42,7 @@ export const RadioButton: FC<RadioButtonProps> = ({
             "before:absolute before:top-1/2 before:left-0 before:h-[21px] before:w-[21px]",
             "before:translate-x-0 before:-translate-y-1/2",
             "before:rounded-full before:border before:border-solid before:border-gray",
-            disabled
-              ? "pointer-events-none"
-              : [
-                  "cursor-pointer",
-                  "focus:before:border-black focus:before:outline-none dark:focus:before:border-white", // COOL:order of peseudo class or elements doesn't matter
-                  "hover:before:border-black hover:before:dark:border-white",
-                  " after:absolute after:top-1/2 after:left-0 ",
-                  "after:-translate-1/4 after:-translate-y-1/2",
-                  "checked:after:rounded-full checked:after:border-6 checked:after:border-solid checked:after:border-danger",
-                  "checked:after:origin-top-left checked:after:-translate-y-1/2 checked:after:translate-x-38",
-                ]
+            disabled ? "pointer-events-none" : activeStyle
           )}
         />
       </span>
@@ -60,6 +50,22 @@ export const RadioButton: FC<RadioButtonProps> = ({
     </label>
   );
 };
+
+const myClasses = clsx({
+  "pointer-events-none": disabled,
+  [activeStyle]: !disabled,
+});
+
+const activeStyle = [
+  "cursor-pointer",
+  "focus:before:border-black focus:before:outline-none dark:focus:before:border-white", // COOL:order of peseudo class or elements doesn't matter
+  "hover:before:border-black hover:before:dark:border-white",
+  "after:absolute after:top-1/2 after:left-0 ",
+  "after:-translate-1/4 after:-translate-y-1/2",
+  // checked
+  "checked:after:rounded-full checked:after:border-6 checked:after:border-solid checked:after:border-danger",
+  "checked:after:origin-top-left checked:after:-translate-y-1/2 checked:after:translate-x-38",
+];
 
 // ------ input -------
 // const StyledInput = styled.input`
